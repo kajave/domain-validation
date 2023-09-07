@@ -1,0 +1,40 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.1.3'
+	id 'io.spring.dependency-management' version '1.1.3'
+}
+
+group = 'com.ebsco'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation group: 'com.opencsv', name: 'opencsv', version: '5.8'
+	implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+//	implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+//	runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+//	runtimeOnly 'io.r2dbc:r2dbc-mssql:1.0.0.RELEASE'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.projectreactor:reactor-test'
+	// https://mvnrepository.com/artifact/org.apache.poi/poi
+
+
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
